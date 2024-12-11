@@ -5,7 +5,7 @@ fun case1() {
     var sum = 0
     val firstList = ArrayList<Int>()
     val secondList = ArrayList<Int>()
-    val filePath="/Users/fabianschmidt/Library/Mobile Documents/com~apple~CloudDocs/Uni/Projects/AoC2024/AoCKotlin/AoC/src/main/kotlin/input1.txt"
+    val filePath="src/main/kotlin/input1.txt"
     File(filePath).forEachLine { line ->
         val numbers = line.split("\\s+".toRegex()).map { it.toInt() }
         firstList.add(numbers[0])
@@ -24,7 +24,7 @@ fun case2() {
     var count = 0
     val firstList = ArrayList<Int>()
     val secondList = ArrayList<Int>()
-    val filePath="/Users/fabianschmidt/Library/Mobile Documents/com~apple~CloudDocs/Uni/Projects/AoC2024/AoCKotlin/AoC/src/main/kotlin/input1.txt"
+    val filePath="src/main/kotlin/input1.txt"
     File(filePath).forEachLine { line ->
         val numbers = line.split("\\s+".toRegex()).map { it.toInt() }
         firstList.add(numbers[0])
