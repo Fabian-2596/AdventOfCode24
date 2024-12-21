@@ -15,18 +15,18 @@ fun test(i : Int, list : ArrayList<String>){
         return
     }
 }
-fun case3a() {
+fun case3a(str : String): Int {
     var sum = 0
     val list = ArrayList<String>()
-    val filePath="src/main/kotlin/input3.txt"
-    var str = File(filePath).readText()
     val splitstr = str.split("mul")
     for(x in splitstr) {
-        if(x[0] != '(') {
+        if(x.isEmpty())
+            continue
+        else if(x[0] != '(') {
             continue
         } else if(x.length >= 9){
-            str = x.removeRange(9, x.length)
-            list.add(str)
+            val s = x.removeRange(9, x.length)
+            list.add(s)
         } else {
             list.add(x)
         }
@@ -40,8 +40,21 @@ fun case3a() {
             sum += splitstr[0].removePrefix("(").toInt() * splitstr[1].removeSuffix(")").toInt()
         }
     }
+    return sum
+}
+fun case3b(str : String){
+    var sum = 0
+    val splitstr = str.split("do()")
+    for(x in splitstr) {
+        val str = x.split("don't()")
+        sum += case3a(str[0])
+    }
     println(sum)
 }
+
 fun main(args: Array<String>) {
-    case3a()
+    val filePath="src/main/kotlin/input3.txt"
+    var str = File(filePath).readText()
+    println(case3a(str))
+    case3b(str)
 }
