@@ -15,6 +15,7 @@ fun test(i : Int, list : ArrayList<String>){
         return
     }
 }
+
 fun case3a(str : String): Int {
     var sum = 0
     val list = ArrayList<String>()
