@@ -1,10 +1,9 @@
 import java.io.File
 
 fun case5a() {
-    val rules: HashMap<Int, ArrayList<Int>> = HashMap<Int, ArrayList<Int>>()
+    val rules: HashMap<Int, ArrayList<Int>> = HashMap()
     val filePath = "src/main/kotlin/input5.txt"
     var sum = 0
-    var sum2 = 0
     File(filePath).forEachLine { line ->
         if (line.isNotEmpty() && line[2] == '|') {
             val splitStr = line.split('|')
@@ -12,7 +11,7 @@ fun case5a() {
             val list = ArrayList<Int>()
             list.add(splitStr[1].toInt())
             if (!rules.containsKey(key)) {
-                rules.put(key, list)
+                rules[key] = list
             } else {
                 rules[key]!!.add(splitStr[1].toInt())
             }
@@ -38,6 +37,6 @@ fun case5a() {
     println(sum)
 }
 
-fun main(args: Array<String>) {
+fun main() {
  case5a()
 }
